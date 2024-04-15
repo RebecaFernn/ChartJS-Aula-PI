@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade ChartJS - PI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+</head>
+
+<body>
+    <div>
+        <h1 style="color: #70DB93;">gráfico 1 - linha</h1>
+        <canvas id="myChart"></canvas>
+    </div>
+<br><br><br>
+    <div >
+        <h1 style="color: #007FFF;">gráfico 2 - barra</h1>
+        <canvas id="myChart2"></canvas>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+const labels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+
+const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Temperatura',
+        backgroundColor: '#007FFF',
+        borderColor: '#007FFF',
+        data: [30, 29, 28, 26, 22, 23]
+    }, {
+        label: 'Umidade',
+        backgroundColor: '#70DB93',
+        borderColor: '#70DB93',
+        data: [80, 81, 80, 85, 84, 82]
+    }]
+};
+
+const config = {
+    type: 'line',
+    data: data,
+    options: {
+
+        scales: {
+            y: {
+                min: 20,
+                max: 90
+            }
+        }
+    } 
+};
+const myChart= new Chart(document.getElementById('myChart'),
+    config
+);
+
+
+const labels2 = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
+
+const data2 = {
+    labels: labels2,
+    datasets: [{
+        label: 'Temperatura Média',
+        backgroundColor: '#007FFF',
+        borderColor:'#007FFF',
+        data: [22, 24, 27, 23, 20, 18]
+    }, {
+        label: 'Umidade Média',
+        backgroundColor: '#70DB93',
+        borderColor: '#70DB93',
+        data: [90, 89, 93, 87, 88, 82]
+    }]
+};
+
+const config2 = {
+    type: 'bar',
+    data: data2,
+    options: {
+
+        scales: {
+            y: {
+                min: 0,
+                max: 100
+            }
+        }
+    } 
+};
+
+const myChart2= new Chart(document.getElementById('myChart2'),
+    config2
+);
+</script>
+
+ 
